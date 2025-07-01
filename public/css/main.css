@@ -1,0 +1,58 @@
+body{
+    height: 100vh;
+}
+
+.login-container{
+    max-width:400px;
+}
+
+.card-custom {
+    background-color:#624bff;
+    color:white;
+}
+
+.btn-custom {
+    background-color: #503ed1;
+    color: white;
+}
+
+.form-check-input:checked {
+    background-color: #624bff;
+    border-color: #624bff;
+  }
+
+  #pagination {
+  margin: 20px 0;
+  text-align: center;
+}
+
+#pagination button {
+  background-color: #007bff;       /* Primary theme blue */
+  color: white;
+  border: none;
+  border-radius: 50px;             /* Round shape */
+  padding: 8px 14px;
+  margin: 6px 4px;                 /* Spacing between buttons */
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#pagination button:hover {
+  background-color: #0056b3;       /* Darker on hover */
+}
+
+#pagination button.active {
+  background-color: #17a2b8;       /* Accent color for active (e.g. info/aqua) */
+  color: white;
+  font-weight: bold;
+}
+
+#pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#columnToggleContainer {
+  margin-bottom:1rem;
+}

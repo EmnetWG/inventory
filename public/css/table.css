@@ -1,0 +1,52 @@
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.table-wrapper {
+  overflow: auto;
+  max-height: 600px; /* or whatever you want */
+  border: 1px solid #ddd;
+}
+#itemsTable {
+  width: max-content; /* allows table to expand beyond container */
+  table-layout: auto;
+  
+  border-collapse: collapse;
+  white-space: nowrap; /* 🚫 no line wrapping */
+}
+#itemsTable th,
+#itemsTable td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  white-space: nowrap; /* 🚫 no wrapping in any cell */
+}
+
+#itemsTable th:nth-child(1),
+#itemsTable td:nth-child(1) {
+  width: 70px; /* Or whatever max width you want */
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#itemsTable thead th {
+  position: sticky;
+  top: 0;
+        /* Match background */
+  z-index: 2;
+}
+
+
+#itemsTable thead th:first-child,
+#itemsTable tbody td:first-child {
+  position: sticky;
+  left: 0;
+  background: #f8f9fa; /* or white if you prefer */
+  z-index: 3;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.card-custom-primary {
+    background-color: #4F46E5;
+    color: #ffffff;
+  }

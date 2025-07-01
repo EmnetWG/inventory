@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .form-container {
+    background: #fff;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  form h3 {
+    margin-top: 25px;
+    color: #333;
+    font-size: 1.1em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  input[type="number"] {
+    appearance: textfield;
+  }
+  
+
+  #itemsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+  }
+  
+  #itemsTable th, #itemsTable td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #itemsTable th {
+    background-color: #f2f2f2;
+  }
+  
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+  }
+  
+  #closeModal {
+    float: right;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+
+  #pagination {
+    margin-top: 20px;
+  }
+  
+  #pagination button {
+    padding: 5px 10px;
+    margin: 2px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+  
+  #pagination button.active {
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+  }
+  
+
+  /* Modal base */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Form container as modal content */
+.modal .form-container {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+}
+
+/* Close button */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+.close-modal:hover {
+  color: #000;
+}

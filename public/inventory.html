@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet"  href="/css/table.css">
+  <link rel="stylesheet"  href="/css/main.css"> 
+</head>
+
+  
+
+
+
+<body class="p-4 bg-light">
+
+  <div class="container">
+
+    <div class="row mb-4" id="itemTypeBreakdown"></div>
+
+    <button id="openFormModalBtn" class="btn btn-custom mb-3">➕ Add New Inventory</button>
+
+    <!-- Modal -->
+    <div id="formModal" class="modal" tabindex="-1" style="display: none;">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Inventory Entry Form</h2>
+            <button type="button" class="btn-close" id="closeFormModal"></button>
+          </div>
+
+          <form id="inventoryForm">
+            <h4>Location Details</h4>
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Location</label>
+                <input type="text" name="location" class="form-control" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Floor</label>
+                <input type="text" name="floor" class="form-control" required />
+              </div>
+            </div>
+
+            <h4>Item Info</h4>
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Item Type</label>
+                <select name="itemType" id="itemTypeSelect" class="form-select" required>
+                  <option value="">Select type</option>
+                </select>
+              </div>
+               <div class="col-md-6">
+                <label class="form-label">Category</label>
+                <input type="text" name="category" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Manufacturer</label>
+                <input type="text" name="manufacturer" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Model</label>
+                <input type="text" name="model" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Form Factor</label>
+                <input type="text" name="formFactor" class="form-control" placeholder="e.g. Tower, Mini, All-in-One" />
+              </div>
+            </div>
+
+            <h4>Hardware Specs</h4>
+            <div class="row g-3 mb-3">
+              <div class="col-md-4">
+                <label class="form-label">RAM</label>
+                <input type="text" name="ram" class="form-control" placeholder="e.g. 16 GB" />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">CPU</label>
+                <input type="text" name="cpuSpeed" class="form-control"  placeholder="e.g. Intel Core i5-12400"  />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">HD Size</label>
+                <input type="text" name="hdSize" class="form-control" placeholder="e.g. 512"  />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Operating System</label>
+                <input type="text" name="operatingSystem" class="form-control" placeholder="e.g. Windows 11" />
+              </div>
+            </div>
+
+            <h4>Identification</h4>
+            <div class="mb-3">
+              <label class="form-label">Serial Number</label>
+              <input type="text" name="serialNumber" class="form-control" required />
+            </div>
+             <div class="mb-3">
+              <label class="form-label">Status</label>
+              <input type="text" name="status" class="form-control"  />
+            </div>
+             <h4>Additional Specs for Printers, Cameras And Network Devices</h4>
+             
+<div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Toner</label>
+                <input type="text" name="toner" class="form-control"  />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Size</label>
+                <input type="text" name="size" class="form-control"  placeholder="e.g. A4"  />
+              </div>
+               <div class="col-md-4">
+                <label class="form-label">Copy Speed</label>
+                <input type="text" name="copySpeed" class="form-control"  placeholder="e.g. 35 CPM"  />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Port Count</label>
+                <input type="text" name="portCount" class="form-control"   />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Is Managed</label>
+                <input type="text" name="isManaged" class="form-control" placeholder="Managed" />
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Resolution</label>
+                <input type="text" name="resolution" class="form-control"  />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Storage Type</label>
+                <input type="text" name="storageType" class="form-control"  placeholder="e.g. NVR"  />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Firmware Version</label>
+                <input type="text" name="firmwareVersion" class="form-control"   />
+              </div>
+             
+            </div>
+
+            
+            
+            
+
+            <div class="mb-3">
+              <label class="form-label">Remarks</label>
+              <textarea name="additionalInfo" class="form-control" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mt-5">Submitted Inventory Items</h3>
+    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search by serial number or model..." />
+
+    <div class="row g-2 mb-4">
+      <div class="col-md-4">
+        <input type="text" id="filterFloor" class="form-control" placeholder="Filter by Floor">
+      </div>
+      <div class="col-md-4">
+        <input type="text" id="filterLocation" class="form-control" placeholder="Filter by Location">
+      </div>
+      <div class="col-md-4">
+        <select id="filterItemType" class="form-select">
+          <option value="">All Item Types</option>
+        </select>
+      </div>
+    </div>
+<div class="table-container">
+   <div id="columnToggleContainer" ></div>
+   <div class="table-wrapper" >
+    <table id="itemsTable" class="table table-bordered table-striped">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Location</th>
+          <th>Floor</th>
+          <th>Item Type</th>
+          <th>Category</th>
+          <th>Manufacturer</th>
+          <th>Model</th>
+          <th>RAM</th>
+          <th>CPU</th>
+          <th>HD</th>
+          <th>OS</th>
+          <th>Serial</th>
+          <th>Status</th>
+          <th>Toner</th>
+          <th>Size</th>
+          <th>Copy Speed</th>
+          <th>Port Count</th>
+          <th>Is Managed</th>
+          <th>Resolution</th>
+          <th>Storage Type</th>
+          <th>Firmware Version</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Injected dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>
+    <div id="pagination"></div>
+
+    <button class="btn btn-outline-success mt-3" onclick="exportTableToExcel()">📤 Export to Excel</button>
+
+    <!-- Edit Modal would follow similar styling to the formModal -->
+
+    <!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" >
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editForm">
+          <!-- Just a few sample fields for now -->
+          <input type="hidden" name="id" />
+          
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="location" id="location" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="floor" class="form-label">Floor</label>
+            <input type="text" name="floor" id="floor" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="editItemTypeSelect" class="form-label">Item Type</label>
+            <select name="itemType" id="editItemTypeSelect" class="form-select" required>
+              <option value="">Select type</option>
+              <!-- Sample Options, you can dynamically load these 
+              <option value="Laptop">Laptop</option>
+              <option value="Desktop">Desktop</option>
+              <option value="Server">Server</option>
+              <option value="Monitor">Monitor</option>
+              <option value="Peripheral">Peripheral</option>
+            -->
+            </select>
+          </div>
+ <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <input type="text" name="category" id="category" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="manufacturer" class="form-label">Manufacturer</label>
+            <input type="text" name="manufacturer" id="manufacturer" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="model" class="form-label">Model</label>
+            <input type="text" name="model" id="model" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="ram" class="form-label">RAM</label>
+            <input type="text" name="ram" id="ram" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="cpuSpeed" class="form-label">CPU</label>
+            <input type="text" name="cpuSpeed" id="cpuSpeed" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="hdSize" class="form-label">HD Size</label>
+            <input type="text" name="hdSize" id="hdSize" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="operatingSystem" class="form-label">Operating System</label>
+            <input type="text" name="operatingSystem" id="operatingSystem" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label for="serialNumber" class="form-label">Serial Number</label>
+            <input type="text" name="serialNumber" id="serialNumber" class="form-control" />
+          </div>
+
+           <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <input type="text" name="status" id="status" class="form-control" />
+          </div>
+
+           <div class="mb-3">
+            <label for="toner" class="form-label">Toner</label>
+            <input type="text" name="toner" id="toner" class="form-control" />
+          </div>
+           
+           <div class="mb-3">
+            <label for="size" class="form-label">Size</label>
+            <input type="text" name="size" id="size" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="copySpeed" class="form-label">Copy Speed</label>
+            <input type="text" name="copySpeed" id="copySpeed" class="form-control" />
+          </div>
+           <div class="mb-3">
+            <label for="portCount" class="form-label">Port Count</label>
+            <input type="text" name="portCount" id="portCount" class="form-control" />
+          </div>
+
+           <div class="mb-3">
+            <label for="isManaged" class="form-label">Is Managed</label>
+            <input type="text" name="isManaged" id="isManaged" class="form-control" />
+          </div>
+
+           <div class="mb-3">
+            <label for="resolution" class="form-label">Resolution</label>
+            <input type="text" name="resolution" id="resolution" class="form-control" />
+          </div>
+
+           <div class="mb-3">
+            <label for="storageType" class="form-label">Storage Type</label>
+            <input type="text" name="storageType" id="storageType" class="form-control" />
+          </div>
+           <div class="mb-3">
+            <label for="firmwareVersion" class="form-label">Firmware Version</label>
+            <input type="text" name="firmwareVersion" id="firmwareVersion" class="form-control" />
+          </div>
+           <div class="mb-3">
+            <label for="additionalInfo" class="form-label">Remarks</label>
+           
+             <textarea name="additionalInfo" id="additionalInfo" class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="./script.js"></script>
+  <script src="/js/column_toggle_checkboxes.js"></script>
+  <script src="/xlsx.full.min.js"></script>
+</body>
+</html>

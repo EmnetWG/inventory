@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inventory Form</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Inventory Entry Form</h2>
+    <form id="inventoryForm">
+      <label>
+        Location:
+        <input type="text" name="location" required />
+      </label>
+
+      <label>
+        Floor:
+        <input type="text" name="floor" required />
+      </label>
+
+      <label>
+        Item Type:
+        <input type="text" name="itemType" required />
+      </label>
+
+      <label>
+        Manufacturer:
+        <input type="text" name="manufacturer" />
+      </label>
+
+      <label>
+        Model:
+        <input type="text" name="model" />
+      </label>
+
+      <label>
+        Form Factor:
+        <input type="text" name="formFactor" />
+      </label>
+
+      <label>
+        RAM:
+        <input type="text" name="ram" />
+      </label>
+
+     
+<label>
+    CPU Speed:
+    <input type="text" name="cpuSpeed" placeholder="e.g. 3.2 GHz" />
+  </label>
+  
+  <label>
+    Operating System:
+    <input type="text" name="operatingSystem" placeholder="e.g. Windows 11" />
+  </label>
+  
+  <label>
+    HD Size:
+    <input type="text" name="hdSize" placeholder="e.g. 512 GB SSD" />
+  </label>
+  
+
+      <label>
+        Serial Number:
+        <input type="text" name="serialNumber" required />
+      </label>
+
+      <label>
+        Additional Information:
+        <textarea name="additionalInfo" rows="4"></textarea>
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
